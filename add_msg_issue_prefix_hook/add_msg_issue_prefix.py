@@ -43,8 +43,8 @@ def main():
         content_subject = content.split("\n", maxsplit=1)[0].strip()
         f.seek(0, 0)
         if issue_number and issue_number not in content_subject:
-            prefix = template.format(issue_number)
-            f.write("{}: {} {}".format(branch_type, content, prefix))
+            suffix = template.format(issue_number)
+            f.write("{} {}".format(content, suffix))
         else:
             f.write(content)
 
